@@ -121,7 +121,10 @@ nav {
 
 /* ---------- hero ---------- */
 .hero {
-  padding: 90px 0 60px;
+  /* padding-top/bottom only: a `padding` shorthand here would zero out
+     the horizontal padding .wrap supplies, flushing the hero to the edge. */
+  padding-top: 90px;
+  padding-bottom: 60px;
   text-align: left;
 }
 .hero .kicker {
