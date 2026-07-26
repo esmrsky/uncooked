@@ -1,8 +1,9 @@
-# uncooked
+# Get Uncooked
 
-A site for people who are smoked — depressed, aimless, addicted, stuck in loops —
-that helps them see which loop has them, what it's doing to their brain, and the
-concrete, evidence-backed counter-practice to get out. Biblical overlaps are
+A site for anyone stuck in a loop — numbing, comparing, isolating, drifting,
+resenting, bracing — that helps them see which loop has them, what it's doing to
+their brain, and the concrete, evidence-backed practice that reverses it.
+The framing is deliberate: the reader is never the problem, the loop is. Biblical overlaps are
 presented as small optional "old map" flyout cards, never as the main spine.
 
 ## Structure
@@ -15,7 +16,7 @@ presented as small optional "old map" flyout cards, never as the main spine.
 - `crisis.html` — dedicated suicide/crisis support page (988 + chat, Crisis Text Line, Trevor Project, veterans, international); all crisis contact info lives here only
 - `data.js` — all content: six patterns (loop mechanics, science TL;DR + sources, practice protocol with optional safety warnings, optional bible flyout card) and the quiz
 - `app.js` — shared chrome, pattern renderer, quiz engine, practice-step checklist persistence (localStorage, fault-tolerant)
-- `styles.css` — the whole look; dark theme, ember (cooked) / teal (uncooked) accents, print styles for the protocols
+- `styles.css` — the whole look; dark theme, ember (the stuck state) / teal (the way out) accents, print styles for the protocols
 
 ## The six patterns
 

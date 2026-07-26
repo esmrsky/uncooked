@@ -1,4 +1,4 @@
-/* ============ uncooked — shared logic ============ */
+/* ============ Get Uncooked — shared logic ============ */
 
 /* localStorage can throw (privacy modes, blocked storage) — never let it break the page */
 function storeGet(key) {
@@ -15,7 +15,7 @@ function renderNav() {
   if (!el) return;
   el.innerHTML = `
     <div class="nav-inner">
-      <a class="brand" href="index.html"><span class="un">un</span>cooked</a>
+      <a class="brand" href="index.html">Get <span class="un">Uncooked</span></a>
       <div class="nav-links">
         <a href="quiz.html">Diagnostic</a>
         <a href="pattern.html">Patterns</a>
@@ -30,7 +30,7 @@ function renderFooter() {
   el.innerHTML = `
     <div class="wrap">
       <div>
-        <p><strong><span style="color:var(--cool)">un</span>cooked</strong> — for people who are smoked and done pretending otherwise.</p>
+        <p><strong>Get <span style="color:var(--cool)">Uncooked</span></strong> — six loops, the mechanics behind each, and the way out.</p>
         <p>This site is education and encouragement, not therapy, diagnosis, or a substitute for professional care.</p>
         <p><a href="why.html">Curious about the Bible overlap? The full argument →</a></p>
       </div>
@@ -62,18 +62,18 @@ function renderPatternPage() {
   const p = slug && Object.hasOwn(PATTERNS, slug) ? PATTERNS[slug] : null;
 
   if (!p) {
-    document.title = "The Patterns — uncooked";
+    document.title = "The Patterns — Get Uncooked";
     root.innerHTML = `
       <header class="pattern-header wrap">
         <div class="kicker">The field guide</div>
-        <h1>Six ways people get cooked</h1>
-        <p class="tagline">Most ruts aren't random — they're loops with known mechanics. Find yours, see how it runs, and learn the counter-practice. Or <a href="quiz.html">take the diagnostic</a> and let it find you.</p>
+        <h1>The six loops</h1>
+        <p class="tagline">Being stuck isn't random — it's a loop, and loops have known mechanics. Find yours, see how it runs, and learn the counter-practice. Or <a href="quiz.html">take the diagnostic</a> and let it find you.</p>
       </header>
       <div class="wrap"><div class="grid">${patternGridHTML()}</div></div>`;
     return;
   }
 
-  document.title = `${p.name} — uncooked`;
+  document.title = `${p.name} — Get Uncooked`;
 
   const para = (arr) => arr.map(t => `<p>${t}</p>`).join("");
   const loop = p.loop.map(s =>

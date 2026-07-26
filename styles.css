@@ -1,4 +1,4 @@
-/* ============ Uncooked — global styles ============ */
+/* ============ Get Uncooked — global styles ============ */
 
 :root {
   --bg: #0d1117;
@@ -8,9 +8,9 @@
   --text: #e8edf2;
   --text-dim: #9aa7b4;
   --text-faint: #8a96a4;
-  --ember: #ff6b35;        /* the "cooked" state */
+  --ember: #ff6b35;        /* the stuck state */
   --ember-soft: #ff8c5f;
-  --cool: #4fd1c5;         /* the "uncooked" state */
+  --cool: #4fd1c5;         /* the way out */
   --cool-soft: #8eece2;
   --danger: #ff5a5a;
   --max: 720px;
@@ -130,14 +130,13 @@ nav {
   text-align: left;
 }
 .hero .kicker {
-  color: var(--ember);
+  color: var(--cool);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.8rem;
   margin-bottom: 1em;
 }
-.hero h1 .cooked { color: var(--ember); }
 .hero h1 .uncooked { color: var(--cool); }
 .hero .lede {
   font-size: 1.2rem;

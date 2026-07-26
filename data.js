@@ -1,4 +1,4 @@
-/* ============ uncooked — content ============ */
+/* ============ Get Uncooked — content ============ */
 /* All pattern + quiz content lives here. pattern.html and quiz.html render from this.
    Structure per pattern: hook → loop → science (tldr, paras, refs) → practice (lead,
    optional safety, steps, oneThing) → bible (optional flyout card) → related. */
