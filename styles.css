@@ -433,3 +433,6 @@ section.pad { padding: 30px 0; }
   .practice-step h4, .practice-step p, .loop-steps .step-body { color: #111 !important; }
   a { color: #111; text-decoration: underline; }
 }
+
+/* reading comfort: balance display text */
+h1, h2, h3 { text-wrap: balance; }
