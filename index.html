@@ -3,288 +3,341 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cybertruck Wraps in Binghamton, NY · FACET Cybertruck Wrap Studio</title>
-<meta name="description" content="Cybertruck color-change wraps and clear PPF in Binghamton, NY. About an hour from Syracuse, Scranton and Ithaca, three from New York City and Philadelphia. Build your wrap online and plan the drive.">
-<meta name="theme-color" content="#141817">
+<title>Cybertruck Wraps &amp; PPF in Binghamton, NY · FACET</title>
+<meta name="description" content="Cybertruck color-change wraps and paint protection film, designed and installed in Binghamton, NY. Serving the Southern Tier, Syracuse, Ithaca, Scranton and beyond. Build your wrap in 3D.">
+<meta name="theme-color" content="#09090a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cybertruck wraps worth the drive · Binghamton, NY">
-<meta property="og:description" content="Drag across the truck to wrap it. Then see how short the drive really is.">
+<meta property="og:title" content="Cybertruck wraps & PPF · Binghamton, NY">
+<meta property="og:description" content="Build your Cybertruck wrap in 3D, then book a consult.">
 <meta property="og:image" content="assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,500..900&family=Overpass:wght@400;600;800&family=Overpass+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@100..500&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 <script src="assets/config.js"></script>
-<script src="assets/app.js" defer></script>
+<script type="module" src="assets/app.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header" id="site-header">
-  <div class="bar">
-    <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 44 16" aria-hidden="true"><path d="M1 8.6 L22 1.5 L43 8.4 L42.2 12 L40.5 14.5 L1.6 14.5 Z"/></svg>
-      <span class="brand-name" data-shop="name">FACET</span>
-      <span class="brand-sub" data-shop="descriptor">Cybertruck Wrap Studio</span>
-    </a>
-    <nav class="nav" aria-label="Sections">
-      <a href="#build">Build</a>
-      <a href="#truck">The truck</a>
+<header class="nav" id="nav">
+  <div class="nav-bar">
+    <a class="wordmark" href="#studio" aria-label="Home"><span data-shop="name">FACET</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#studio">Studio</a>
+      <a href="#services">Services</a>
       <a href="#finishes">Finishes</a>
-      <a href="#drive">The drive</a>
-      <a href="#faq">FAQ</a>
+      <a href="#process">Process</a>
+      <a href="#visit">Visit</a>
     </nav>
-    <a class="bar-phone" data-shop="phone" data-tel href="tel:+16075550142">(607) 555-0142</a>
-    <a class="btn btn-sign bar-cta" href="#quote">Get a quote</a>
+    <a class="nav-phone" data-shop="phone" data-tel href="tel:+16075550142">(607) 555-0142</a>
+    <a class="pill pill-light" href="#book">Book a consult</a>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- HERO + BUILDER -->
-  <section class="hero" id="top" aria-labelledby="hero-title">
-    <div class="rail hero-copy">
-      <p class="eyebrow">Cybertruck wrap studio · <span class="nowrap"><span data-shop="city">Binghamton</span>, NY</span></p>
-      <h1 id="hero-title" class="display">Worth the drive.</h1>
-      <p class="lede">Color-change wraps and clear protection film, built around the Cybertruck. About an hour from Syracuse, Scranton and Ithaca. About three from New York City and Philadelphia.</p>
+  <!-- STUDIO: live 3D configurator -->
+  <section class="studio" id="studio" aria-labelledby="studio-title">
+    <div class="studio-stage" id="stage">
+      <canvas class="studio-canvas" id="studio-canvas" aria-label="Interactive 3D Cybertruck. Drag to rotate."></canvas>
+      <img class="studio-fallback" id="studio-fallback" src="assets/renders/hero.jpg" alt="Cybertruck, half wrapped in satin black and half bare stainless steel" hidden>
+      <p class="stage-hint" id="stage-hint" aria-hidden="true"><span></span>Drag to rotate</p>
     </div>
 
-    <div class="stage-wrap" id="build">
-      <div class="stage" id="stage">
-        <p class="stage-ghost" id="stage-ghost" aria-hidden="true">Satin Olive Drab</p>
-        <svg class="stage-svg" id="stage-svg" viewBox="0 70 1000 400" role="img" aria-labelledby="stage-title">
-          <title id="stage-title">Side view of a Cybertruck, partly wrapped and partly bare stainless steel</title>
-        </svg>
-        <div class="handle" id="handle" aria-hidden="true">
-          <span class="handle-line"></span>
-          <span class="handle-knob"><svg viewBox="0 0 24 12"><path d="M8 1 L2 6 L8 11 M16 1 L22 6 L16 11"/></svg></span>
-        </div>
-        <span class="stage-tag stage-tag-l" aria-hidden="true">Wrapped</span>
-        <span class="stage-tag stage-tag-r" aria-hidden="true">Bare stainless</span>
-        <p class="stage-hint" id="stage-hint" aria-hidden="true">Drag across the truck</p>
+    <div class="studio-copy rail">
+      <p class="eyebrow">Cybertruck wraps &amp; PPF · <span data-shop="city">Binghamton</span>, NY</p>
+      <h1 id="studio-title" class="h-display">Stainless is only the beginning.</h1>
+      <p class="lede">Color-change wraps and paint protection film for the Cybertruck, designed and installed here in the Southern Tier. Turn the truck, try a finish, then book a consult.</p>
+      <div class="actions">
+        <a class="pill pill-light" href="#book">Book a consult</a>
+        <a class="pill pill-ghost" href="#finishes">See the finishes</a>
       </div>
-      <label class="sr-only" for="wrap-range">How much of the truck is wrapped</label>
-      <input class="sr-only" type="range" id="wrap-range" min="0" max="100" step="1" value="0">
     </div>
 
-    <div class="rail">
-      <div class="dock" role="group" aria-label="Wrap builder">
-        <fieldset class="dock-row">
-          <legend class="dock-label">Finish</legend>
-          <div class="chips" id="finish-group"></div>
+    <div class="dock-wrap rail">
+      <div class="dock" id="dock" role="group" aria-label="Wrap builder">
+        <fieldset class="dock-block dock-finish">
+          <legend class="label">Finish</legend>
+          <div class="tabs" id="finish-group"></div>
         </fieldset>
-        <fieldset class="dock-row">
-          <legend class="dock-label">Color</legend>
+        <fieldset class="dock-block dock-color">
+          <legend class="label">Color</legend>
           <div class="swatches" id="color-group"></div>
         </fieldset>
-        <div class="readout">
+        <div class="dock-block dock-compare">
+          <label class="label" for="reveal">Compare with bare stainless</label>
+          <input class="range" type="range" id="reveal" min="0" max="100" value="56" step="1">
+        </div>
+        <div class="dock-block dock-readout">
           <div class="readout-text">
-            <p class="readout-name" id="readout-name" aria-live="polite">Satin Olive Drab</p>
+            <p class="readout-name" id="readout-name" aria-live="polite">Satin Obsidian</p>
             <p class="readout-note" id="readout-note">A low sheen that sharpens every edge. No wax, no polish.</p>
           </div>
           <div class="readout-actions">
-            <span class="build-code" id="build-code" title="Build code">CT-SAT-OLV</span>
-            <button class="btn btn-ghost" type="button" id="copy-link">Copy build link</button>
-            <a class="btn btn-sign" href="#quote" id="book-build">Book this build</a>
+            <button class="pill pill-ghost pill-sm" type="button" id="copy-link">Copy link</button>
+            <a class="pill pill-light pill-sm" href="#book" id="book-build">Book this build</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE TRUCK -->
-  <section class="section steel" id="truck" aria-labelledby="truck-title">
+  <!-- CRAFT -->
+  <section class="section craft" id="craft" aria-labelledby="craft-title">
+    <div class="rail craft-grid">
+      <div class="craft-mark" aria-hidden="true">
+        <span class="numeral">607</span>
+        <span class="label">Made in the 607</span>
+      </div>
+      <div class="craft-copy">
+        <p class="eyebrow">The craft</p>
+        <h2 id="craft-title" class="h-section">Built around flat steel and hard edges.</h2>
+        <p>Every panel on a Cybertruck is a mirror. Stretch marks, seams and lifted edges that hide on curvier trucks are obvious here. So every panel is planned before the first cut, film goes on with minimal stretch, and every edge gets checked under raking light.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS: Tesla-style callouts -->
+  <section class="section details" id="details" aria-labelledby="details-title">
     <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">The truck</p>
-        <h2 id="truck-title" class="display-2">Flat steel forgives nothing.</h2>
-        <p>The Cybertruck is big, flat panels meeting at hard edges. On a curvy car, small install flaws hide in the curves. Here they show up in every reflection. These are the six places a Cybertruck wrap is won or lost.</p>
+      <header class="head">
+        <p class="eyebrow">Know the truck</p>
+        <h2 id="details-title" class="h-section">Flat steel forgives nothing.</h2>
       </header>
-      <figure class="etch">
-        <div class="etch-scroll">
-          <svg id="etch-svg" viewBox="0 64 1000 384" role="img" aria-labelledby="etch-title">
-            <title id="etch-title">Line drawing of the Cybertruck with six numbered problem areas</title>
-          </svg>
+    </div>
+    <div class="detail-figure">
+      <div class="detail-img">
+        <img src="assets/renders/details.jpg" alt="Side profile of a bare stainless Cybertruck with six labeled areas" width="2000" height="820" loading="lazy">
+        <div class="callouts" id="callouts">
+          <button class="callout" type="button" data-i="0" data-n="1" style="--x:89.47%;--y:43.67%;--dx:-1;--dy:1"><span class="dot"></span><span class="line"></span><span class="tag">Knife-edge nose</span></button>
+          <button class="callout" type="button" data-i="1" data-n="2" style="--x:66.34%;--y:26.56%;--dx:1;--dy:-1"><span class="dot"></span><span class="line"></span><span class="tag">One unbroken rake</span></button>
+          <button class="callout" type="button" data-i="2" data-n="3" style="--x:62.15%;--y:53.60%;--dx:1;--dy:1"><span class="dot"></span><span class="line"></span><span class="tag">Mirror-flat panels</span></button>
+          <button class="callout" type="button" data-i="3" data-n="4" style="--x:39.17%;--y:50.61%;--dx:-1;--dy:1"><span class="dot"></span><span class="line"></span><span class="tag">Door gaps</span></button>
+          <button class="callout" type="button" data-i="4" data-n="5" style="--x:77.86%;--y:39.77%;--dx:1;--dy:-1"><span class="dot"></span><span class="line"></span><span class="tag">Hex wheel arches</span></button>
+          <button class="callout" type="button" data-i="5" data-n="6" style="--x:21.36%;--y:30.19%;--dx:-1;--dy:-1"><span class="dot"></span><span class="line"></span><span class="tag">The vault</span></button>
         </div>
-        <figcaption>Side profile drawn to scale from Tesla's published dimensions. Height varies with ride height.</figcaption>
-      </figure>
-      <ol class="callouts" id="callouts">
-        <li data-n="1"><span class="callout-n" aria-hidden="true">1</span><div><h3>Knife-edge nose</h3><p>The front is a hard edge with a full-width light bar. Film is trimmed tight to the light and heat-set so the edge can't lift at highway speed.</p></div></li>
-        <li data-n="2"><span class="callout-n" aria-hidden="true">2</span><div><h3>One unbroken line</h3><p>Hood to roof is a single straight slope. Seams get planned before the first cut so nothing interrupts that line.</p></div></li>
-        <li data-n="3"><span class="callout-n" aria-hidden="true">3</span><div><h3>Mirror-flat panels</h3><p>Stretch marks, bubbles and waves that disappear on curved panels are obvious here. Film goes on with minimal stretch and gets checked under raking light.</p></div></li>
-        <li data-n="4"><span class="callout-n" aria-hidden="true">4</span><div><h3>Door gaps</h3><p>Edges are tucked into every gap and relief-cut at the corners, so doors open clean and no bare steel peeks through.</p></div></li>
-        <li data-n="5"><span class="callout-n" aria-hidden="true">5</span><div><h3>Angular arches</h3><p>The six-sided wheel arches meet black cladding. Straight, even edges here are what separate a pro install from a weekend job.</p></div></li>
-        <li data-n="6"><span class="callout-n" aria-hidden="true">6</span><div><h3>The vault</h3><p>The tonneau and sail face the sky. Horizontal panels take the most sun, so film choice and edge sealing matter most up here.</p></div></li>
+      </div>
+    </div>
+    <div class="rail">
+      <ol class="detail-list" id="detail-list">
+        <li class="on"><span class="num">01</span><h3>Knife-edge nose</h3><p>A hard edge with a full-width light bar. Film is trimmed tight to the light and heat-set so the edge can’t lift at highway speed.</p></li>
+        <li><span class="num">02</span><h3>One unbroken rake</h3><p>Hood to roof is a single straight slope. Seams are planned before the first cut so nothing interrupts that line.</p></li>
+        <li><span class="num">03</span><h3>Mirror-flat panels</h3><p>Flaws that disappear on curved panels show up here. Film goes on with minimal stretch and gets checked under raking light.</p></li>
+        <li><span class="num">04</span><h3>Door gaps</h3><p>Edges are tucked into every gap and relief-cut at the corners, so doors open clean and no bare steel peeks through.</p></li>
+        <li><span class="num">05</span><h3>Hex wheel arches</h3><p>The six-sided arches meet black cladding. Straight, even edges here separate a pro install from a weekend job.</p></li>
+        <li><span class="num">06</span><h3>The vault</h3><p>The tonneau and sail face the sky. Horizontal panels take the most sun, so film choice and edge sealing matter most up here.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services" aria-labelledby="services-title">
+    <div class="rail">
+      <header class="head head-split">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2 id="services-title" class="h-section">Three ways to change a Cybertruck.</h2>
+        </div>
+        <p class="head-note">Every job starts with a consult: film samples, a plan for each panel and a written quote.</p>
+      </header>
+      <div class="service-grid">
+        <article class="service">
+          <div class="service-img"><img src="assets/renders/svc-color.jpg" alt="Cybertruck wrapped in gloss deep blue" loading="lazy" width="1200" height="900"></div>
+          <div class="service-body">
+            <h3>Full color change</h3>
+            <p>Every panel, in any finish from gloss to chrome. The truck looks new, and the stainless underneath stays untouched.</p>
+            <button class="text-link" type="button" data-coverage="cov-full">Ask about a color change</button>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service-img"><img src="assets/renders/svc-ppf.jpg" alt="Front of a stainless Cybertruck under clear protection film" loading="lazy" width="1200" height="900"></div>
+          <div class="service-body">
+            <h3>Paint protection film</h3>
+            <p>Clear gloss or satin urethane over the stainless. Keeps the factory look and takes the scratches, road grime and fingerprints.</p>
+            <button class="text-link" type="button" data-coverage="cov-ppf">Ask about PPF</button>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service-img"><img src="assets/renders/svc-accent.jpg" alt="Stainless Cybertruck with a blacked-out roof and vault" loading="lazy" width="1200" height="900"></div>
+          <div class="service-body">
+            <h3>Accents &amp; two-tone</h3>
+            <p>A blacked-out vault, roof, pillars or trim lines. A big change for a smaller commitment.</p>
+            <button class="text-link" type="button" data-coverage="cov-part">Ask about accents</button>
+          </div>
+        </article>
+        <article class="service service-cta">
+          <div class="service-body">
+            <p class="label">Not sure yet?</p>
+            <h3>Bring your ideas. We’ll help you choose.</h3>
+            <p>See film samples in person or over video, and get a written quote before anything is booked.</p>
+            <a class="pill pill-light" href="#book">Book a consult</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINISHES: poster wall -->
+  <section class="section finishes" id="finishes" aria-labelledby="finishes-title">
+    <div class="rail">
+      <header class="head head-split">
+        <div>
+          <p class="eyebrow">Finishes</p>
+          <h2 id="finishes-title" class="h-section">Six finishes. One very flat truck.</h2>
+        </div>
+        <p class="head-note">Each one behaves differently on the Cybertruck’s big panels. Try any of them on the live truck.</p>
+      </header>
+    </div>
+    <div class="posters" id="posters">
+      <article class="poster">
+        <img src="assets/renders/fin-gloss.jpg" alt="Gloss red Cybertruck, front three-quarter view" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">01</span>
+        <div class="poster-body">
+          <h3>Gloss</h3>
+          <p>Deep reflections, like fresh paint. A look the Cybertruck never came with.</p>
+          <button class="text-link" type="button" data-finish="gloss" data-color="red">Try it live</button>
+        </div>
+      </article>
+      <article class="poster">
+        <img src="assets/renders/fin-satin.jpg" alt="Satin black Cybertruck, rear three-quarter view" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">02</span>
+        <div class="poster-body">
+          <h3>Satin</h3>
+          <p>A low sheen that makes every crease look machined.</p>
+          <button class="text-link" type="button" data-finish="satin" data-color="obsidian">Try it live</button>
+        </div>
+      </article>
+      <article class="poster">
+        <img src="assets/renders/fin-matte.jpg" alt="Matte desert tan Cybertruck" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">03</span>
+        <div class="poster-body">
+          <h3>Matte</h3>
+          <p>No reflection at all. Pure silhouette. Matte-safe care only.</p>
+          <button class="text-link" type="button" data-finish="matte" data-color="tan">Try it live</button>
+        </div>
+      </article>
+      <article class="poster">
+        <img src="assets/renders/fin-chrome.jpg" alt="Silver chrome Cybertruck, front view" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">04</span>
+        <div class="poster-body">
+          <h3>Chrome</h3>
+          <p>A rolling mirror. The loudest film there is, and the hardest to lay flat.</p>
+          <button class="text-link" type="button" data-finish="chrome" data-color="concrete">Try it live</button>
+        </div>
+      </article>
+      <article class="poster">
+        <img src="assets/renders/fin-shift.jpg" alt="Color-shift Cybertruck in teal, blue and violet" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">05</span>
+        <div class="poster-body">
+          <h3>Color-shift</h3>
+          <p>A different color from every angle. Each flat panel reads as its own shade.</p>
+          <button class="text-link" type="button" data-finish="shift" data-color="aurora">Try it live</button>
+        </div>
+      </article>
+      <article class="poster">
+        <img src="assets/renders/fin-ppf.jpg" alt="Stainless Cybertruck with satin clear protection film" loading="lazy" width="900" height="1200">
+        <span class="poster-num" aria-hidden="true">06</span>
+        <div class="poster-body">
+          <h3>Clear PPF</h3>
+          <p>Your stainless, protected, in gloss or satin.</p>
+          <button class="text-link" type="button" data-finish="ppf" data-color="satin-clear">Try it live</button>
+        </div>
+      </article>
+    </div>
+    <p class="rail caption">Rendered in our 3D studio.</p>
+  </section>
+
+  <!-- VISIT: local + regional -->
+  <section class="section visit" id="visit" aria-labelledby="visit-title">
+    <div class="rail">
+      <header class="head">
+        <p class="eyebrow">Visit</p>
+        <h2 id="visit-title" class="h-section">Local to Binghamton. Worth the drive from further.</h2>
+      </header>
+      <div class="visit-grid">
+        <div class="visit-col">
+          <h3>In the Southern Tier</h3>
+          <p>Come see film samples in person and talk through your build. By appointment.</p>
+          <ul class="towns" aria-label="Nearby towns">
+            <li>Binghamton</li><li>Vestal</li><li>Johnson City</li><li>Endicott</li><li>Endwell</li><li>Conklin</li><li>Kirkwood</li><li>Chenango</li><li>Owego</li><li>Whitney Point</li>
+          </ul>
+          <dl class="facts">
+            <div><dt>Address</dt><dd data-shop-address>Binghamton, NY 13901</dd></div>
+            <div><dt>Hours</dt><dd data-shop="hours">By appointment</dd></div>
+            <div><dt>Phone</dt><dd><a data-shop="phone" data-tel href="tel:+16075550142">(607) 555-0142</a></dd></div>
+          </dl>
+          <a class="text-link" id="directions" href="https://www.google.com/maps/search/?api=1&amp;query=Binghamton%2C%20NY%2013901" target="_blank" rel="noopener">Get directions</a>
+        </div>
+        <div class="visit-col">
+          <h3>Coming from further</h3>
+          <p>Plan by phone and photos, then make the drive twice: once to drop off, once to pick up. I-81, I-86 and I-88 all meet in Binghamton.</p>
+          <table class="drives">
+            <caption class="sr-only">Approximate drive times to Binghamton</caption>
+            <tbody>
+              <tr><th scope="row">Ithaca, NY</th><td>1 hr</td></tr>
+              <tr><th scope="row">Scranton, PA</th><td>1 hr</td></tr>
+              <tr><th scope="row">Syracuse, NY</th><td>1 hr 15 min</td></tr>
+              <tr><th scope="row">Wilkes-Barre, PA</th><td>1 hr 15 min</td></tr>
+              <tr><th scope="row">Albany, NY</th><td>2 hr 15 min</td></tr>
+              <tr><th scope="row">Allentown, PA</th><td>2 hr 15 min</td></tr>
+              <tr><th scope="row">Rochester, NY</th><td>2 hr 30 min</td></tr>
+              <tr><th scope="row">Philadelphia, PA</th><td>3 hr 5 min</td></tr>
+              <tr><th scope="row">New York City</th><td>3 hr 15 min</td></tr>
+            </tbody>
+          </table>
+          <p class="caption">Approximate drive times in normal traffic.</p>
+        </div>
+      </div>
+      <p class="coords" aria-hidden="true">42.10° N &nbsp;/&nbsp; 75.92° W</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process" id="process" aria-labelledby="process-title">
+    <div class="rail">
+      <header class="head">
+        <p class="eyebrow">Process</p>
+        <h2 id="process-title" class="h-section">From first call to first drive.</h2>
+      </header>
+      <ol class="steps">
+        <li><span class="numeral" aria-hidden="true">01</span><h3>Consult</h3><p>Talk through the look, see film samples and get a written quote. In person, or by phone and photos.</p></li>
+        <li><span class="numeral" aria-hidden="true">02</span><h3>Plan</h3><p>Pick film, finish and coverage. Seams and edges are planned panel by panel before anything is cut.</p></li>
+        <li><span class="numeral" aria-hidden="true">03</span><h3>Install</h3><p>Decontamination, prep and install. A typical full color change takes <span data-shop="turnaround">3–5 days</span>.</p></li>
+        <li><span class="numeral" aria-hidden="true">04</span><h3>Handover</h3><p>A final inspection under shop lights and a walkthrough on caring for your film.</p></li>
       </ol>
     </div>
   </section>
 
   <!-- REAL WORK (hidden until photos are added in config.js) -->
-  <section class="section dark" id="work" aria-labelledby="work-title" hidden>
+  <section class="section work" id="work" aria-labelledby="work-title" hidden>
     <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">Recent builds</p>
-        <h2 id="work-title" class="display-2">Out of the bay.</h2>
-      </header>
+      <header class="head"><p class="eyebrow">Recent builds</p><h2 id="work-title" class="h-section">Out of the bay.</h2></header>
       <div class="gallery" id="gallery"></div>
     </div>
   </section>
 
-  <!-- FINISHES -->
-  <section class="section dark" id="finishes" aria-labelledby="finishes-title">
-    <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">Finishes</p>
-        <h2 id="finishes-title" class="display-2">Stainless is just the primer.</h2>
-        <p>Six ways to finish a Cybertruck, and what living with each one is like.</p>
-      </header>
-      <div class="finish-grid">
-        <article class="finish">
-          <div class="mini" data-finish="gloss" data-color="red"></div>
-          <h3>Gloss</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>Fresh paint with deep reflections. A paint job the Cybertruck never came with.</dd></div>
-            <div><dt>Living with it</dt><dd>The easiest finish to wash. Dark colors show swirl marks.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="gloss" data-color="red">Try gloss on the truck</button>
-        </article>
-        <article class="finish">
-          <div class="mini" data-finish="satin" data-color="obsidian"></div>
-          <h3>Satin</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>A soft, low sheen that makes every crease look machined.</dd></div>
-            <div><dt>Living with it</dt><dd>No wax and no polish. Wash with a pH-neutral soap.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="satin" data-color="obsidian">Try satin on the truck</button>
-        </article>
-        <article class="finish">
-          <div class="mini" data-finish="matte" data-color="tan"></div>
-          <h3>Matte</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>No reflection at all. Pure silhouette.</dd></div>
-            <div><dt>Living with it</dt><dd>Matte-safe products only. It can't be buffed or polished.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="matte" data-color="tan">Try matte on the truck</button>
-        </article>
-        <article class="finish">
-          <div class="mini" data-finish="chrome" data-color="concrete"></div>
-          <h3>Chrome</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>A rolling mirror. The loudest film you can buy.</dd></div>
-            <div><dt>Living with it</dt><dd>Shows scratches, costs the most, and takes the most skill to lay flat.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="chrome" data-color="concrete">Try chrome on the truck</button>
-        </article>
-        <article class="finish">
-          <div class="mini" data-finish="shift" data-color="aurora"></div>
-          <h3>Color-shift</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>A different color from every angle. Each flat panel reads as its own shade.</dd></div>
-            <div><dt>Living with it</dt><dd>Same care as gloss. Expect strangers to ask what color it is.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="shift" data-color="aurora">Try color-shift on the truck</button>
-        </article>
-        <article class="finish">
-          <div class="mini" data-finish="ppf" data-color="gloss-clear"></div>
-          <h3>Clear PPF</h3>
-          <dl>
-            <div><dt>Looks like</dt><dd>Your stainless, in a gloss or satin finish.</dd></div>
-            <div><dt>Living with it</dt><dd>Thick urethane takes the scratches and road grime. Most films heal light marks with heat.</dd></div>
-          </dl>
-          <button class="try" type="button" data-finish="ppf" data-color="gloss-clear">Try clear PPF on the truck</button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE DRIVE -->
-  <section class="section road" id="drive" aria-labelledby="drive-title">
-    <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">The drive</p>
-        <h2 id="drive-title" class="display-2">Three interstates meet here.</h2>
-        <p>I-81, I-86 and I-88 all run through Binghamton, so the trip is highway from almost any direction. Pick your town.</p>
-      </header>
-      <div class="drive-grid">
-        <figure class="map">
-          <svg id="map-svg" viewBox="0 0 640 560" role="img" aria-labelledby="map-title">
-            <title id="map-title">Map of towns around Binghamton, placed by compass direction and drive time</title>
-          </svg>
-          <figcaption>Towns sit in their real compass direction. Distance from the center is drive time, not miles.</figcaption>
-        </figure>
-        <div class="trip">
-          <label class="field-label" for="from">Driving from</label>
-          <select id="from" class="select"></select>
-          <div class="sign" id="sign">
-            <div class="sign-inner">
-              <div class="sign-shields" id="sign-shields" aria-hidden="true"></div>
-              <p class="sign-dest"><span>Binghamton</span><svg class="sign-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22 V4 M5 11 L12 3 L19 11"/></svg></p>
-              <p class="sign-time" id="sign-time" aria-live="polite">1 hr 15 min</p>
-              <p class="sign-from">from <span id="sign-from">Syracuse, NY</span></p>
-            </div>
-          </div>
-          <dl class="trip-facts">
-            <div><dt>As the crow flies</dt><dd id="trip-crow">66 mi</dd></div>
-            <div><dt>Leave at 8:00 AM</dt><dd id="trip-arrive">Here by about 9:15 AM</dd></div>
-          </dl>
-          <p class="trip-line" id="trip-line">A podcast there, a podcast back.</p>
-          <p class="trip-note">Drive times are approximate, in normal traffic.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE PLAN -->
-  <section class="section steel" id="plan" aria-labelledby="plan-title">
-    <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">Coming from out of town</p>
-        <h2 id="plan-title" class="display-2">Two trips. That's it.</h2>
-        <p>Everything before drop-off happens by text, photos and a call. You make the drive once to drop off and once to pick up.</p>
-      </header>
-      <ol class="steps">
-        <li><span class="step-n" aria-hidden="true">1</span><h3>Plan it from home</h3><p>Send a few photos and what you're picturing. We'll help you pick film, finish and coverage, and send a written quote before you get in the truck.</p></li>
-        <li><span class="step-n" aria-hidden="true">2</span><h3>Pick a drop-off day</h3><p>Choose a date that works with your drive. Morning drop-offs make the most of the trip.</p></li>
-        <li><span class="step-n" aria-hidden="true">3</span><h3>Hand over the keys</h3><p>Walk the truck together, look at film samples in daylight and sign off on the plan.</p></li>
-        <li><span class="step-n" aria-hidden="true">4</span><h3>Drive home different</h3><p>Final inspection under shop lights, a care walkthrough, and a truck that looks like nothing else on your street.</p></li>
-      </ol>
-      <p class="turnaround">Typical full color change: <strong data-shop="turnaround">3–5 days</strong> in the shop.</p>
-
-      <div class="local">
-        <h3 class="local-title">Staying for the day?</h3>
-        <ul class="local-list">
-          <li><h4>Eat a spiedie</h4><p>Binghamton's own sandwich: marinated cubes of meat, grilled on skewers, pulled onto Italian bread.</p></li>
-          <li><h4>Ride a carousel</h4><p>Greater Binghamton has six antique wooden carousels. They were donated on the condition that riding stays free, and it still is.</p></li>
-          <li><h4>Find Rod Serling</h4><p>The Twilight Zone creator grew up here. Good town for a truck that looks like it came from another dimension.</p></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- REVIEWS (hidden until real reviews are added in config.js) -->
-  <section class="section steel reviews-section" id="reviews" aria-labelledby="reviews-title" hidden>
+  <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title" hidden>
     <div class="rail">
-      <header class="section-head">
-        <p class="eyebrow">Reviews</p>
-        <h2 id="reviews-title" class="display-2">They made the drive.</h2>
-      </header>
+      <header class="head"><p class="eyebrow">Reviews</p><h2 id="reviews-title" class="h-section">From the owners.</h2></header>
       <div class="reviews" id="review-list"></div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section dark" id="faq" aria-labelledby="faq-title">
+  <section class="section faq-section" id="faq" aria-labelledby="faq-title">
     <div class="rail faq-grid">
-      <header class="section-head">
+      <header class="head">
         <p class="eyebrow">FAQ</p>
-        <h2 id="faq-title" class="display-2">Before you make the drive.</h2>
+        <h2 id="faq-title" class="h-section">Good questions.</h2>
       </header>
       <div class="faq">
         <details>
           <summary>Can film go straight onto the stainless?</summary>
-          <p>Yes. There's no paint on a Cybertruck, and properly cleaned and decontaminated stainless is an excellent surface for wrap film and PPF. Prep matters more than on a painted car: oils, water spots and embedded iron specks all get removed before any film goes on.</p>
+          <p>Yes. There’s no paint on a Cybertruck, and properly cleaned and decontaminated stainless is an excellent surface for wrap film and PPF. Oils, water spots and embedded iron specks all come off before any film goes on.</p>
         </details>
         <details>
           <summary>Will a wrap damage the truck?</summary>
@@ -292,73 +345,55 @@
         </details>
         <details>
           <summary>How long does it take?</summary>
-          <p>A typical full color change is <span data-shop="turnaround">3–5 days</span> in the shop, including prep, install and a final inspection. Partial wraps and accents are faster. You'll get a firm schedule with your quote.</p>
+          <p>A typical full color change is <span data-shop="turnaround">3–5 days</span> in the shop, including prep, install and a final inspection. Accents and partial wraps are faster. You’ll get a firm schedule with your quote.</p>
         </details>
         <details>
-          <summary>How long will it last?</summary>
-          <p>Premium films are typically rated for several years. The vault and hood face the sun and age faster than the sides. Garage parking and gentle hand washing add years.</p>
+          <summary>What’s the difference between a wrap and PPF?</summary>
+          <p>A color wrap changes the look. Paint protection film is thicker, clear or satin urethane built to absorb scratches and road debris, and most of it heals light marks with heat. Plenty of owners do both.</p>
         </details>
         <details>
-          <summary>What's the difference between a wrap and PPF?</summary>
-          <p>A color wrap changes the look. Paint protection film is thicker, clear or satin urethane built to absorb scratches and road debris, and most of it heals light marks with heat. Plenty of owners do both: color on the body and PPF on the high-impact areas.</p>
-        </details>
-        <details>
-          <summary>I'm three hours away. Is it really worth it?</summary>
-          <p>A wrap lives on your truck for years, and on the Cybertruck's flat panels the difference between an average install and a great one is visible from across a parking lot. Planning happens by phone and photos, so it's one trip to drop off and one to pick up.</p>
+          <summary>I’m a few hours away. How does that work?</summary>
+          <p>We plan everything by phone, photos and video first, so you only make the drive twice: to drop off and to pick up.</p>
         </details>
         <details>
           <summary>How do I wash a wrapped Cybertruck?</summary>
-          <p>Hand wash with a pH-neutral soap. Skip brush car washes and keep pressure-washer tips away from film edges. On satin and matte, don't use wax, polish or anything that adds shine.</p>
+          <p>Hand wash with a pH-neutral soap. Skip brush car washes and keep pressure-washer tips away from film edges. On satin and matte, don’t use wax, polish or anything that adds shine.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- QUOTE -->
-  <section class="section studio" id="quote" aria-labelledby="quote-title">
-    <div class="rail quote-grid">
-      <div class="quote-side">
-        <header class="section-head">
-          <p class="eyebrow">Start your build</p>
-          <h2 id="quote-title" class="display-2">Tell us about your truck.</h2>
-          <p>You'll get questions, a plan and a written quote back. Your build from the top of the page is already filled in.</p>
+  <!-- BOOK -->
+  <section class="section book" id="book" aria-labelledby="book-title">
+    <div class="rail book-grid">
+      <div class="book-side">
+        <header class="head">
+          <p class="eyebrow">Book a consult</p>
+          <h2 id="book-title" class="h-section">Tell us about your truck.</h2>
+          <p>We’ll reply with questions, ideas and a written quote. Your build from the studio is already filled in.</p>
         </header>
-        <aside class="sheet" aria-label="Your build sheet">
-          <div class="sheet-head"><span>Build sheet</span><span class="sheet-code" id="sheet-code">CT-SAT-OLV</span></div>
-          <div class="sheet-truck" id="sheet-truck"></div>
-          <dl class="sheet-list">
-            <div><dt>Look</dt><dd id="sheet-look">Satin Olive Drab</dd></div>
-            <div><dt>Driving from</dt><dd id="sheet-from">Syracuse, NY</dd></div>
-            <div><dt>Drive time</dt><dd id="sheet-time">About 1 hr 15 min</dd></div>
-          </dl>
+        <aside class="build-card" aria-label="Your build">
+          <div class="build-thumb"><img id="build-thumb" src="assets/renders/hero.jpg" alt="" width="1600" height="900"></div>
+          <div class="build-meta">
+            <div><span class="label">Your build</span><p id="build-name">Satin Obsidian</p></div>
+            <span class="code" id="build-code">CT-SAT-OBS</span>
+          </div>
         </aside>
       </div>
 
-      <div class="quote-main">
+      <div class="book-main">
         <form class="form" id="quote-form" novalidate>
-          <div class="form-row two">
-            <div class="field">
-              <label class="field-label" for="q-name">Name</label>
-              <input class="input" id="q-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label class="field-label" for="q-from">Driving from</label>
-              <select class="select" id="q-from" name="from"></select>
-            </div>
+          <div class="row two">
+            <div class="field"><label class="label" for="q-name">Name</label><input class="input" id="q-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label class="label" for="q-town">Where are you based?</label><input class="input" id="q-town" name="town" type="text" autocomplete="address-level2" placeholder="Vestal, NY"></div>
           </div>
-          <div class="form-row two">
-            <div class="field">
-              <label class="field-label" for="q-email">Email</label>
-              <input class="input" id="q-email" name="email" type="email" autocomplete="email">
-            </div>
-            <div class="field">
-              <label class="field-label" for="q-phone">Phone <span class="opt">(for texts)</span></label>
-              <input class="input" id="q-phone" name="phone" type="tel" autocomplete="tel">
-            </div>
+          <div class="row two">
+            <div class="field"><label class="label" for="q-email">Email</label><input class="input" id="q-email" name="email" type="email" autocomplete="email"></div>
+            <div class="field"><label class="label" for="q-phone">Phone</label><input class="input" id="q-phone" name="phone" type="tel" autocomplete="tel"></div>
           </div>
           <fieldset class="field">
-            <legend class="field-label">Which Cybertruck?</legend>
-            <div class="chips chips-form">
+            <legend class="label">Which Cybertruck?</legend>
+            <div class="chips">
               <label class="chip"><input type="radio" name="trim" value="AWD" id="trim-awd"><span>AWD</span></label>
               <label class="chip"><input type="radio" name="trim" value="Cyberbeast" id="trim-beast"><span>Cyberbeast</span></label>
               <label class="chip"><input type="radio" name="trim" value="RWD" id="trim-rwd"><span>RWD</span></label>
@@ -366,23 +401,19 @@
             </div>
           </fieldset>
           <fieldset class="field">
-            <legend class="field-label">Coverage</legend>
-            <div class="chips chips-form">
+            <legend class="label">What are you thinking?</legend>
+            <div class="chips">
               <label class="chip"><input type="radio" name="coverage" value="Full color change" id="cov-full" checked><span>Full color change</span></label>
-              <label class="chip"><input type="radio" name="coverage" value="Full clear PPF" id="cov-ppf"><span>Full clear PPF</span></label>
+              <label class="chip"><input type="radio" name="coverage" value="Paint protection film" id="cov-ppf"><span>PPF</span></label>
               <label class="chip"><input type="radio" name="coverage" value="Color change + PPF" id="cov-both"><span>Color + PPF</span></label>
-              <label class="chip"><input type="radio" name="coverage" value="Accents / partial" id="cov-part"><span>Accents / partial</span></label>
+              <label class="chip"><input type="radio" name="coverage" value="Accents / two-tone" id="cov-part"><span>Accents / two-tone</span></label>
               <label class="chip"><input type="radio" name="coverage" value="Not sure yet" id="cov-unsure"><span>Not sure yet</span></label>
             </div>
           </fieldset>
-          <div class="form-row two">
-            <div class="field">
-              <label class="field-label" for="q-look">Finish and color</label>
-              <input class="input" id="q-look" name="look" type="text" value="Satin Olive Drab (CT-SAT-OLV)">
-            </div>
-            <div class="field">
-              <label class="field-label" for="q-when">When</label>
-              <select class="select" id="q-when" name="when">
+          <div class="row two">
+            <div class="field"><label class="label" for="q-look">Finish and color</label><input class="input" id="q-look" name="look" type="text" value="Satin Obsidian (CT-SAT-OBS)"></div>
+            <div class="field"><label class="label" for="q-when">When</label>
+              <select class="input select" id="q-when" name="when">
                 <option>In the next month</option>
                 <option selected>1–3 months</option>
                 <option>3+ months</option>
@@ -390,57 +421,53 @@
               </select>
             </div>
           </div>
-          <div class="field">
-            <label class="field-label" for="q-notes">Anything else?</label>
-            <textarea class="input" id="q-notes" name="notes" rows="4" placeholder="Accents, logos, dates that work, questions…"></textarea>
-          </div>
+          <div class="field"><label class="label" for="q-notes">Anything else?</label><textarea class="input" id="q-notes" name="notes" rows="4" placeholder="Accents, logos, dates that work, questions…"></textarea></div>
           <p class="form-error" id="form-error" role="alert" hidden></p>
           <div class="form-submit">
-            <button class="btn btn-sign btn-lg" type="submit" id="q-submit">Send my build</button>
+            <button class="pill pill-light pill-lg" type="submit" id="q-submit">Send</button>
             <p class="form-note">Prefer to talk? Call or text <a data-shop="phone" data-tel href="tel:+16075550142">(607) 555-0142</a>.</p>
           </div>
         </form>
 
         <div class="form-done" id="form-done" hidden tabindex="-1">
           <p class="eyebrow">Sent</p>
-          <h3 class="display-3">Your build is in.</h3>
-          <p id="form-done-text">We'll get back to you with questions and a quote.</p>
+          <h3 class="h-sub">Thanks. Your build is in.</h3>
+          <p id="form-done-text">We’ll get back to you with questions and a quote.</p>
         </div>
 
         <div class="form-done" id="form-fallback" hidden tabindex="-1">
           <p class="eyebrow">Almost there</p>
-          <h3 class="display-3">Send us your build sheet.</h3>
-          <p>Copy it into a text or email, or open it in your email app. Either way it lands with the person who'll wrap your truck.</p>
+          <h3 class="h-sub">Send us your build sheet.</h3>
+          <p>Copy it into a text or email, or open it in your email app.</p>
           <label class="sr-only" for="fallback-text">Your build sheet</label>
           <textarea class="input sheet-text" id="fallback-text" rows="10" readonly></textarea>
           <div class="fallback-actions">
-            <button class="btn btn-sign" type="button" id="copy-sheet">Copy build sheet</button>
-            <a class="btn btn-ghost" id="mail-sheet" href="mailto:hello@example.com">Open in email</a>
+            <button class="pill pill-light" type="button" id="copy-sheet">Copy build sheet</button>
+            <a class="pill pill-ghost" id="mail-sheet" href="mailto:hello@example.com">Open in email</a>
           </div>
-          <p class="form-note">Email <span class="selectable" data-shop="email">hello@example.com</span>, or call or text <span class="selectable" data-shop="phone">(607) 555-0142</span></p>
+          <p class="form-note">Email <span class="selectable" data-shop="email">hello@example.com</span>, or call or text <span class="selectable" data-shop="phone">(607) 555-0142</span>.</p>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
+<footer class="footer">
   <div class="rail">
     <p class="footer-mark" aria-hidden="true"><span data-shop="name">FACET</span></p>
     <div class="footer-grid">
       <div>
-        <h2 class="footer-h">Shop</h2>
-        <p><span data-shop="descriptor">Cybertruck Wrap Studio</span><br><span data-shop-address>Binghamton, NY 13901</span></p>
-        <p><span data-shop="hours">By appointment</span></p>
+        <h2 class="label">Visit</h2>
+        <p><span data-shop="descriptor">Cybertruck Wrap Studio</span><br><span data-shop-address>Binghamton, NY 13901</span><br><span data-shop="hours">By appointment</span></p>
       </div>
       <div>
-        <h2 class="footer-h">Contact</h2>
+        <h2 class="label">Contact</h2>
         <p><a data-shop="phone" data-tel href="tel:+16075550142">(607) 555-0142</a><br><a data-shop="email" data-mail href="mailto:hello@example.com">hello@example.com</a></p>
         <p data-optional="instagram" hidden><a data-shop-ig href="#">Instagram</a></p>
       </div>
       <div class="footer-area">
-        <h2 class="footer-h">Cybertruck wraps for drivers from</h2>
-        <ul class="towns"><li>Syracuse</li><li>Ithaca</li><li>Cortland</li><li>Elmira</li><li>Oneonta</li><li>Utica</li><li>Scranton</li><li>Wilkes-Barre</li><li>Williamsport</li><li>Albany</li><li>Rochester</li><li>Buffalo</li><li>Middletown</li><li>Allentown</li><li>Harrisburg</li><li>Morristown</li><li>New York City</li><li>Philadelphia</li><li>Hartford</li></ul>
+        <h2 class="label">Cybertruck wraps and PPF for</h2>
+        <p>Binghamton, Vestal, Johnson City, Endicott, Endwell, Conklin, Owego, Ithaca, Cortland, Elmira, Oneonta, Syracuse, Utica, Scranton, Wilkes-Barre, Albany, Rochester, Allentown, Philadelphia and New York City.</p>
       </div>
     </div>
     <p class="fine">Tesla and Cybertruck are trademarks of Tesla, Inc. <span data-shop="name">FACET</span> is an independent shop and is not affiliated with Tesla. © <span id="year">2026</span></p>
@@ -448,8 +475,8 @@
 </footer>
 
 <div class="mobile-bar">
-  <a class="btn btn-ghost" data-tel href="tel:+16075550142">Call</a>
-  <a class="btn btn-sign" href="#quote">Get a quote</a>
+  <a class="pill pill-ghost" data-tel href="tel:+16075550142">Call</a>
+  <a class="pill pill-light" href="#book">Book a consult</a>
 </div>
 </body>
 </html>
