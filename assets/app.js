@@ -85,7 +85,7 @@ function initStudio() {
       studio = createStudio(canvas, {
         reducedMotion: reduceMotion,
         maxDpr: 1.75,
-        modelUrl: 'assets/models/cybertruck.glb',
+        modelUrl: window.STUDIO_MODEL_URL || 'assets/models/cybertruck.glb',
         reflection: !window.matchMedia('(pointer: coarse)').matches,
         onInteract: () => { if (hint) hint.classList.add('gone'); },
         onReady: () => {
