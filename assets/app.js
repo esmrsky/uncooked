@@ -59,9 +59,21 @@ function framingFor(canvas) {
   return { offset: [0, 0, 0], shift: [0, 0.04], fitWidth: 3.2, fitHeight: 1.45 };
 }
 
+function showFallback() {
+  const canvas = $('#studio-canvas');
+  if (canvas) canvas.hidden = true;
+  const fb = $('#studio-fallback');
+  if (fb) fb.hidden = false;
+  ['#stage-hint', '#stage-loading'].forEach((s) => { const el = $(s); if (el) el.hidden = true; });
+  const compare = $('.dock-compare');
+  if (compare) compare.hidden = true;
+  studio = null;
+}
+
 function initStudio() {
   const canvas = $('#studio-canvas');
   if (!canvas) return;
+  const stage = $('#stage');
   const hint = $('#stage-hint');
   let ok = false;
   try {
@@ -73,32 +85,27 @@ function initStudio() {
       studio = createStudio(canvas, {
         reducedMotion: reduceMotion,
         maxDpr: 1.75,
-        onInteract: () => { if (hint) hint.classList.add('gone'); }
+        modelUrl: 'assets/models/cybertruck.glb',
+        reflection: !window.matchMedia('(pointer: coarse)').matches,
+        onInteract: () => { if (hint) hint.classList.add('gone'); },
+        onReady: () => {
+          if (stage) stage.classList.add('ready');
+          // Opening: film sweeps on from the tail while the camera settles.
+          if (reduceMotion) studio.setReveal(state.reveal);
+          else setTimeout(() => sweepTo(state.reveal, 1700), 500);
+          applyLook();
+        },
+        onError: showFallback
       });
     } catch (e) {
       studio = null;
     }
   }
-  if (!studio) {
-    canvas.hidden = true;
-    const fb = $('#studio-fallback');
-    if (fb) fb.hidden = false;
-    if (hint) hint.hidden = true;
-    const compare = $('.dock-compare');
-    if (compare) compare.hidden = true;
-    return;
-  }
+  if (!studio) { showFallback(); return; }
   const applyFraming = () => studio.setFraming(framingFor(canvas));
   applyFraming();
   new ResizeObserver(applyFraming).observe(canvas);
-
-  // Opening: film sweeps on from the tail while the camera settles.
-  if (reduceMotion) {
-    studio.setReveal(state.reveal);
-  } else {
-    studio.setReveal(0);
-    setTimeout(() => sweepTo(state.reveal, 1700), 700);
-  }
+  studio.setReveal(0);
 }
 
 let sweepRaf = 0;
@@ -164,7 +171,7 @@ function applyLook({ animate = false } = {}) {
   clearTimeout(thumbTimer);
   thumbTimer = setTimeout(() => {
     if (!studio) return;
-    try { const img = $('#build-thumb'); if (img) img.src = studio.capture('image/jpeg', 0.82, { offset: [0, 0.02, 0], shift: [0, 0], fitWidth: 3.6, fitHeight: 1.5, reveal: 100 }); } catch (e) { /* keep the static image */ }
+    try { const img = $('#build-thumb'); const url = studio.capture('image/jpeg', 0.82, { offset: [0, 0.02, 0], shift: [0, 0], fitWidth: 3.6, fitHeight: 1.5, reveal: 100 }); if (img && url) img.src = url; } catch (e) { /* keep the static image */ }
   }, 600);
 }
 

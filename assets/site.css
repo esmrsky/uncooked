@@ -133,6 +133,16 @@ ol, ul { padding: 0; list-style: none; }
 }
 .studio-stage { position: absolute; inset: 0; z-index: 0; }
 .studio-canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; outline: none; }
+.studio-canvas { opacity: 0; transition: opacity 1s ease; }
+.studio-stage.ready .studio-canvas { opacity: 1; }
+.stage-loading {
+  position: absolute; z-index: 2; left: 50%; top: 52%; transform: translate(-10%, -50%); pointer-events: none;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3);
+  transition: opacity .5s ease;
+}
+.studio-stage.ready .stage-loading { opacity: 0; }
+@media (prefers-reduced-motion: no-preference) { .studio-stage:not(.ready) .stage-loading { animation: breathe 1.6s ease-in-out infinite; } }
+@keyframes breathe { 50% { opacity: .35; } }
 .studio-canvas:active { cursor: grabbing; }
 .studio-fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .studio::after {

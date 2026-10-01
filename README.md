@@ -2,7 +2,7 @@
 
 A one-page site for a Cybertruck-focused wrap and PPF shop in Binghamton, NY. It's written for Southern Tier locals first, and also makes the case for drivers coming from Syracuse, Scranton, Albany or New York City.
 
-Plain HTML, CSS and JavaScript. No build step and no framework. The only library is [three.js](https://threejs.org) (MIT), bundled in `assets/vendor/` so the site doesn't depend on a CDN.
+Plain HTML, CSS and JavaScript. No build step and no framework. The only library is [three.js](https://threejs.org) (MIT) plus its glTF loader and meshopt decoder, bundled in `assets/vendor/` so the site doesn't depend on a CDN.
 
 ## What's on the page
 
@@ -16,7 +16,15 @@ Plain HTML, CSS and JavaScript. No build step and no framework. The only library
 | **Visit** | Local (Southern Tier towns, address, directions) and regional (drive times) side by side. |
 | **Process, FAQ, Book** | Four steps, common questions, and a booking form pre-filled with the visitor's build and a snapshot of their truck. |
 
-The truck is modeled from Tesla's published dimensions (223.7 in long, 143.1 in wheelbase). Every finish is a physically based material: clearcoat for gloss, roughness for satin and matte, metalness for chrome, and brushed anisotropic steel for bare stainless and PPF.
+## The 3D truck
+
+The truck is a glTF model in `assets/models/cybertruck.glb`, scaled to Tesla's published length (223.7 in). The page loads it after the rest of the page, shows "Loading the truck" meanwhile, and fades it in.
+
+Films are applied by one shader layer (`makeFilm` in `assets/truck3d.js`). It reads the model's own metalness map to find bare stainless, and only those areas get the film. Tires, glass, trim, the tonneau and lights keep their own look. Each finish is a set of physical properties: clearcoat for gloss, roughness for satin and matte, tinted metal for chrome, a clear coat over the steel for PPF, and an angle-dependent blend for color-shift.
+
+**Model license:** the model file was supplied by the shop owner and has no license or author info embedded. Confirm the license allows commercial use on a website and add any required credit to the footer before launch.
+
+**Swapping the model:** any Cybertruck glTF/GLB works if it has a metalness map that marks the stainless panels. Re-compress large files with `gltf-transform meshopt in.glb out.glb` (the page includes the meshopt decoder). On phones the floor reflection is turned off to halve the drawing work.
 
 ## Before launch: replace the placeholders
 
@@ -63,8 +71,9 @@ index.html            page content
 assets/config.js      shop details (edit this)
 assets/site.css       design
 assets/app.js         page logic: builder UI, callouts, booking form
-assets/truck3d.js     the 3D Cybertruck, studio lighting and films
-assets/vendor/        three.js (MIT license included)
+assets/truck3d.js     studio: lighting, camera, film shader, model loading
+assets/models/        the Cybertruck model (GLB, meshopt-compressed)
+assets/vendor/        three.js, glTF loader, meshopt decoder (MIT license included)
 assets/renders/       still renders used on the page
 assets/og.jpg         link-preview image
 favicon.svg
