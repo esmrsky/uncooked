@@ -7,7 +7,6 @@
 */
 import * as THREE from './vendor/three.module.min.js';
 import { GLTFLoader } from './vendor/addons/loaders/GLTFLoader.js';
-import { MeshoptDecoder } from './vendor/addons/libs/meshopt_decoder.module.js';
 
 /* ------------------------------------------------------------------
    Films. Shared with the page UI.
@@ -265,6 +264,36 @@ function makeEdge(metalTex, planes) {
 }
 
 /* ------------------------------------------------------------------
+   Model loading
+   A .glb loads directly (meshopt-compressed). A .json file holds an
+   uncompressed .glb as base64 ({ "glb": "..." }) for strict hosts that
+   won't serve .glb or run WebAssembly; it is decoded here rather than
+   fetched as a data: URL, which strict pages also block.
+   Textures load through <img> elements so they never need fetch().
+   ------------------------------------------------------------------ */
+function loadModel(url) {
+  const loader = new GLTFLoader();
+  loader.register((parser) => {
+    parser.textureLoader = new THREE.TextureLoader(parser.options.manager);
+    return { name: 'img-textures' };
+  });
+  if (/\.json(\?|$)/.test(url)) {
+    return fetch(url)
+      .then((r) => { if (!r.ok) throw new Error(`Model request failed: ${r.status}`); return r.json(); })
+      .then((j) => {
+        const raw = atob(j.glb);
+        const bytes = new Uint8Array(raw.length);
+        for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+        return new Promise((resolve, reject) => loader.parse(bytes.buffer, '', resolve, reject));
+      });
+  }
+  // Compressed .glb: the decoder uses WebAssembly, so load it only when it's needed.
+  return import('./vendor/addons/libs/meshopt_decoder.module.js')
+    .then(({ MeshoptDecoder }) => MeshoptDecoder.ready.then(() => { loader.setMeshoptDecoder(MeshoptDecoder); }))
+    .then(() => new Promise((resolve, reject) => loader.load(url, resolve, undefined, reject)));
+}
+
+/* ------------------------------------------------------------------
    The studio
    ------------------------------------------------------------------ */
 export function createStudio(canvas, opts = {}) {
@@ -392,13 +421,7 @@ export function createStudio(canvas, opts = {}) {
     dirty = true;
   }
 
-  const readyPromise = new Promise((resolve, reject) => {
-    const loader = new GLTFLoader();
-    loader.setMeshoptDecoder(MeshoptDecoder);
-    loader.load(opts.modelUrl || 'assets/models/cybertruck.glb', (gltf) => {
-      try { buildFromModel(gltf); finishLoad(); resolve(); } catch (e) { reject(e); }
-    }, undefined, reject);
-  });
+  const readyPromise = loadModel(opts.modelUrl || 'assets/models/cybertruck.glb').then((gltf) => { buildFromModel(gltf); finishLoad(); });
   readyPromise.then(() => opts.onReady && opts.onReady(), (e) => opts.onError && opts.onError(e));
 
   /* ---------- camera rig ---------- */

@@ -64,7 +64,11 @@ function showFallback() {
   if (canvas) canvas.hidden = true;
   const fb = $('#studio-fallback');
   if (fb) fb.hidden = false;
-  ['#stage-hint', '#stage-loading'].forEach((s) => { const el = $(s); if (el) el.hidden = true; });
+  const hint = $('#stage-hint');
+  if (hint) hint.hidden = true;
+  // Say so, rather than leaving a still image that looks like a frozen 3D view.
+  const note = $('#stage-loading');
+  if (note) { note.textContent = '3D view unavailable on this device. Your picks still go on your build sheet.'; note.classList.add('failed'); }
   const compare = $('.dock-compare');
   if (compare) compare.hidden = true;
   studio = null;
@@ -95,7 +99,7 @@ function initStudio() {
           else setTimeout(() => sweepTo(state.reveal, 1700), 500);
           applyLook();
         },
-        onError: showFallback
+        onError: (e) => { console.error('3D truck failed to load:', e); showFallback(); }
       });
     } catch (e) {
       studio = null;

@@ -141,6 +141,7 @@ ol, ul { padding: 0; list-style: none; }
   transition: opacity .5s ease;
 }
 .studio-stage.ready .stage-loading { opacity: 0; }
+.stage-loading.failed { top: auto; bottom: 34%; left: 50%; transform: translateX(-50%); text-align: center; width: min(90%, 520px); color: var(--text-2); animation: none !important; z-index: 2; }
 @media (prefers-reduced-motion: no-preference) { .studio-stage:not(.ready) .stage-loading { animation: breathe 1.6s ease-in-out infinite; } }
 @keyframes breathe { 50% { opacity: .35; } }
 .studio-canvas:active { cursor: grabbing; }
